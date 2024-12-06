@@ -8,6 +8,7 @@
 import java.util.LinkedList;
 
 class Solution {
+    //TreeNode class was given in problem description to create a BST
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -27,13 +28,13 @@ class Solution {
     public static int kthSmallest(TreeNode root, int k) {
         //Declare variables
         LinkedList<TreeNode> stack = new LinkedList<>();
-        TreeNode curr = root;
+        TreeNode curr = root; //For traversing the tree
         int count = 0; //count will tell us if we have reached the kth smallest number
-        //Even if curr is null, the stack still have nodes, continue traversing tree
-        //if curr is null and the stack is empty, we cannot find the kth smallest node
+        //Even if curr is null, the stack may still have nodes, so continue traversing tree
+        //If curr is null and the stack is empty, we cannot find the kth smallest node
         while(!stack.isEmpty() || curr != null) {
-            //push nodes onto the stack, choosing the left node each time until it is null
-            //pop the top element in the stack, if count equals k, return the node's value
+            //Push nodes onto the stack, choosing the left node each time until it is null
+            //Pop the top element in the stack, if count equals k, return the node's value
             //Otherwise, set curr equal to the right node
             if(curr != null) {
                 stack.push(curr);
